@@ -1,0 +1,39 @@
+body,html{
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  #my-video {
+    max-width: 600px;
+    max-height: 336px;
+    margin-top: 50px;
+  	margin-left: auto;
+  	margin-right: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #my-video {
+    max-width: 300px;
+    max-height: 168px;
+    margin-top: 50px;
+  	margin-left: auto;
+  	margin-right: auto;
+  }
+}
+
+#my-video {
+  box-shadow: 0 10px 50px rgba(130, 56, 56, 0.85),0 10px 50px rgba(0, 0, 0, 0.65);
+}
+
+p {
+    margin-bottom: 50px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: cornflowerblue;
+}
