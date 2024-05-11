@@ -58,8 +58,8 @@ function play(main, xml) {
 	var hostname = window.location.hostname
 	var port = window.location.port || '80';
 	var picurl = window.location.protocol + "//" + window.location.host + pic;
-	var url = window.location.protocol + "//" + window.location.host + main
-	xml = window.location.protocol + "//" + window.location.host + xml
+	var url = main
+	xml = xml
 	var isiPad = navigator.userAgent.match(/iPhone|Linux|Android|iPod|ios|iOS|Windows Phone|Phone|WebOS/i) != null;
 	var iPad = navigator.userAgent.match(/iPad/i) != null;
 	if (iPad) {
