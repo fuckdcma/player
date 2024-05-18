@@ -1,0 +1,70 @@
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const url = new URL(request.url);
+  const path = url.pathname.replace(/^\/+/, '');
+
+//const referer = request.headers.get('Referer');
+//  if (!referer || !referer.startsWith('https://player.p4k.me/')) {
+//    return new Response('Đừng cố cào link', { status: 401 });
+//  }
+  
+
+  const githubURL = `https://raw.githubusercontent.com/fuckdcma/${path}`;
+  const token = 'Dvxxfmts30ubKMJZSjdfpOEZ413gAqU';
+  const allowedDomain = 'https://player.p4k.me';
+
+  const headers = new Headers(request.headers);
+  headers.set('Authorization', `token ${token}`);
+  headers.set('Cache-Control', 'max-age=60');
+  headers.set('Range', request.headers.get('Range'));
+
+  const newRequest = new Request(githubURL, {
+    method: request.method,
+    headers: headers
+  });
+
+  const response = await fetch(newRequest);
+
+  if (!response.ok) {
+    return new Response('Nhìn cái chó gì?.', { status: response.status });
+  }
+
+  const modifiedResponse = new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: response.headers
+  });
+  modifiedResponse.headers.delete('Vary');
+  modifiedResponse.headers.delete('Via');
+  modifiedResponse.headers.delete('Content-Security-Policy');
+  modifiedResponse.headers.delete('X-Cache');
+  modifiedResponse.headers.delete('X-Cache-Hits');
+  modifiedResponse.headers.delete('X-Content-Type-Options');
+  modifiedResponse.headers.delete('X-Fastly-Request-Id');
+  modifiedResponse.headers.delete('X-Frame-Options');
+  modifiedResponse.headers.delete('X-Github-Request-Id');
+  modifiedResponse.headers.delete('X-Served-By');
+  modifiedResponse.headers.delete('X-Timer');
+  modifiedResponse.headers.delete('X-Xss-Protection');
+  modifiedResponse.headers.delete('Source-Age');
+  modifiedResponse.headers.delete('Strict-Transport-Security');
+  modifiedResponse.headers.delete('Date');
+  modifiedResponse.headers.delete('Etag');
+  modifiedResponse.headers.delete('Expires');
+  modifiedResponse.headers.delete('Nel');
+  modifiedResponse.headers.delete('Report-To');
+
+  
+  if (path.endsWith('.txt') || path.endsWith('.m3u8')) {
+    modifiedResponse.headers.set('Content-Type', 'image/gif');
+    modifiedResponse.headers.set('Content-Disposition', 'attachment; filename="videoplayback"');
+  }
+ 
+  modifiedResponse.headers.set('Access-Control-Allow-Origin', allowedDomain);
+  modifiedResponse.headers.set('Origin', allowedDomain);
+
+  return modifiedResponse;
+}
