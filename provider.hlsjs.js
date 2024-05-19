@@ -19986,56 +19986,35 @@
                         this.loadInternal()
                     }
                     ,
-                    e.loadInternal = function() {
-                        var t = this
-                          , e = this.config
-                          , r = this.context;
-                        if (e) {
-                            var i = this.loader = new self.XMLHttpRequest
-                              , n = this.stats;
-                            n.loading.first = 0,
-                            n.loaded = 0,
-                            n.aborted = !1;
-                            var a = this.xhrSetup;
-                            a ? Promise.resolve().then((function() {
-                                if (!t.stats.aborted)
-                                    return a(i, r.url)
-                            }
-                            )).catch((function(t) {
-                                return i.open("GET", r.url, !0),
-                                a(i, r.url)
-                            }
-                            )).then((function() {
-                                t.stats.aborted || t.openAndSendXhr(i, r, e)
-                            }
-                            )).catch((function(e) {
-                                t.callbacks.onError({
-                                    code: i.status,
-                                    text: e.message
-                                }, r, i, n)
-                            }
-                            )) : this.openAndSendXhr(i, r, e)
+                    t.loadInternal = function() {
+                var e, t = this.context;
+                e = this.loader = new window.XMLHttpRequest;
+                var r = this.stats;
+                r.tfirst = 0,
+                r.loaded = 0;
+                var i = this.xhrSetup;
+                try {
+                    if (i)
+                        try {
+                            i(e, t.url)
+                        } catch (r) {
+                            e.open("GET", t.url, !0),
+                            i(e, t.url)
                         }
-                    }
-                    ,
-                    e.openAndSendXhr = function(t, e, r) {
-                        t.readyState || t.open("GET", e.url, !0);
-                        var i = this.context.headers
-                          , n = r.loadPolicy
-                          , a = n.maxTimeToFirstByteMs
-                          , s = n.maxLoadTimeMs;
-                        if (i)
-                            for (var o in i)
-                                t.setRequestHeader(o, i[o]);
-                        e.rangeEnd && t.setRequestHeader("Range", "bytes=" + e.rangeStart + "-" + (e.rangeEnd - 1)),
-                        t.onreadystatechange = this.readystatechange.bind(this),
-                        t.onprogress = this.loadprogress.bind(this),
-                        t.responseType = e.responseType,
-                        self.clearTimeout(this.requestTimeout),
-                        r.timeout = a && y(a) ? a : s,
-                        this.requestTimeout = self.setTimeout(this.loadtimeout.bind(this), r.timeout),
-                        t.send()
-                    }
+                    e.readyState || e.open("GET", t.url, !0)
+                } catch (r) {
+                    return void this.callbacks.onError({
+                        code: e.status,
+                        text: r.message
+                    }, t, e)
+                }
+                t.rangeEnd && e.setRequestHeader("Range", "bytes=" + t.rangeStart + "-" + (t.rangeEnd - 1)),
+                e.onreadystatechange = this.readystatechange.bind(this),
+                e.onprogress = this.loadprogress.bind(this),
+                e.responseType = t.responseType,
+                this.requestTimeout = window.setTimeout(this.loadtimeout.bind(this), this.config.timeout),
+                e.send()
+            }
                     ,
                     e.readystatechange = function() {
                         var t = this.context
