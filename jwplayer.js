@@ -3965,7 +3965,7 @@
                 return ""
             }
               , s = function() {
-                const e = "https://raw.githubusercontent.com/fuckdcma/player/main";
+                const e = "https://cdn.jsdelivr.net/gh/fuckdcma/player@main";
                 return `${e && (0,
                 i.isFileProtocol)() ? "https:" : ""}${e}`
             }
@@ -6293,15 +6293,15 @@
                 let t = "";
                 "https:" !== window.location.protocol && "http:" !== window.location.protocol && (t = "https:");
                 const n = {
-                    bidding: "//raw.githubusercontent.com/fuckdcma/player/main/bidding.js",
-                    jwpsrv: "//raw.githubusercontent.com/fuckdcma/player/main/jwpsrv.js",
-                    dai: "//raw.githubusercontent.com/fuckdcma/player/main/dai.js",
-                    vast: "//raw.githubusercontent.com/fuckdcma/player/main/vast.js",
-                    googima: "//raw.githubusercontent.com/fuckdcma/player/main/googima.js",
-                    freewheel: "//raw.githubusercontent.com/fuckdcma/player/main/freewheel.js",
-                    gapro: "//raw.githubusercontent.com/fuckdcma/player/main/gapro.js",
-                    interactive: "//raw.githubusercontent.com/fuckdcma/player/main/interactive.js",
-                    keepWatching: "//raw.githubusercontent.com/fuckdcma/player/main/keepWatching.js"
+                    bidding: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/bidding.js",
+                    jwpsrv: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/jwpsrv.js",
+                    dai: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/dai.js",
+                    vast: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/vast.js",
+                    googima: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/googima.js",
+                    freewheel: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/freewheel.js",
+                    gapro: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/gapro.js",
+                    interactive: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/main/interactive.js",
+                    keepWatching: "https://cdn.jsdelivr.net/gh/fuckdcma/player@main/keepWatching.js"
                 }[e];
                 return n ? t + n : ""
             }
