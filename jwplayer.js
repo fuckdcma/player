@@ -3965,7 +3965,7 @@
                 return ""
             }
               , s = function() {
-                const e = "//ssl.p.jwpcdn.com/player/v/8.34.1";
+                const e = "https://raw.githubusercontent.com/fuckdcma/player/main";
                 return `${e && (0,
                 i.isFileProtocol)() ? "https:" : ""}${e}`
             }
@@ -6293,15 +6293,15 @@
                 let t = "";
                 "https:" !== window.location.protocol && "http:" !== window.location.protocol && (t = "https:");
                 const n = {
-                    bidding: "//ssl.p.jwpcdn.com/player/v/8.34.1/bidding.js",
-                    jwpsrv: "//ssl.p.jwpcdn.com/player/v/8.34.1/jwpsrv.js",
-                    dai: "//ssl.p.jwpcdn.com/player/v/8.34.1/dai.js",
-                    vast: "//ssl.p.jwpcdn.com/player/v/8.34.1/vast.js",
-                    googima: "//ssl.p.jwpcdn.com/player/v/8.34.1/googima.js",
-                    freewheel: "//ssl.p.jwpcdn.com/player/v/8.34.1/freewheel.js",
-                    gapro: "//ssl.p.jwpcdn.com/player/v/8.34.1/gapro.js",
-                    interactive: "//ssl.p.jwpcdn.com/player/v/8.34.1/interactive.js",
-                    keepWatching: "//ssl.p.jwpcdn.com/player/v/8.34.1/keepWatching.js"
+                    bidding: "//raw.githubusercontent.com/fuckdcma/player/main/bidding.js",
+                    jwpsrv: "//raw.githubusercontent.com/fuckdcma/player/main/jwpsrv.js",
+                    dai: "//raw.githubusercontent.com/fuckdcma/player/main/dai.js",
+                    vast: "//raw.githubusercontent.com/fuckdcma/player/main/vast.js",
+                    googima: "//raw.githubusercontent.com/fuckdcma/player/main/googima.js",
+                    freewheel: "//raw.githubusercontent.com/fuckdcma/player/main/freewheel.js",
+                    gapro: "//raw.githubusercontent.com/fuckdcma/player/main/gapro.js",
+                    interactive: "//raw.githubusercontent.com/fuckdcma/player/main/interactive.js",
+                    keepWatching: "//raw.githubusercontent.com/fuckdcma/player/main/keepWatching.js"
                 }[e];
                 return n ? t + n : ""
             }
